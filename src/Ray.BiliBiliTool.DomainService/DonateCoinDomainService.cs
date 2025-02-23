@@ -60,8 +60,8 @@ namespace Ray.BiliBiliTool.DomainService
             _videoDomainService = videoDomainService;
             _relationApi = relationApi;
             _videoApi = videoApi;
-            _expDic = expDicOptions.Get(Constants.OptionsNames.ExpDictionaryName);
-            _donateContinueStatusDic = donateContinueStatusDicOptions.Get(Constants.OptionsNames.DonateCoinCanContinueStatusDictionaryName);
+            _expDic = expDicOptions.Get(Config.Constants.OptionsNames.ExpDictionaryName);
+            _donateContinueStatusDic = donateContinueStatusDicOptions.Get(Config.Constants.OptionsNames.DonateCoinCanContinueStatusDictionaryName);
         }
 
         /// <summary>
@@ -128,7 +128,7 @@ namespace Ray.BiliBiliTool.DomainService
             else
                 _logger.LogInformation("投币尝试超过10次，已终止");
 
-            _logger.LogInformation("【硬币余额】{coin}", (await _accountApi.GetCoinBalance()).Data.Money ?? 0);
+            _logger.LogInformation("【硬币余额】{coin}", (await _accountApi.GetCoinBalanceAsync()).Data.Money ?? 0);
         }
 
         /// <summary>
